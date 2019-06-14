@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.github.glomadrian.grav.GravView
+        android:id="@+id/grav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+        app:array_colors="@array/bubble"
+        app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+        app:regular_cell_size="300"
+        app:regular_variance="200"
+        app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+        app:ball_from_size="10dp"
+        app:ball_to_size="20dp"
+        app:animationGenerators="@array/BubbleAnimations"
+        app:side_to_side_min_duration="10000"
+        app:side_to_side_max_duration="10000"
+        app:side_to_side_direction="leftToRight"
+        app:shake_direction="vertical"
+        app:shake_min_duration="10000"
+        app:shake_max_duration="20000"
+        app:shake_variance="500dp"
+        />
+
+    <Button
+        android:id="@+id/start_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background"
+        android:onClick="startGame"
+        android:text="@string/start_game"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/sound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background"
+        android:onClick="sound"
+        android:text="暂停\n音乐"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/exit_game"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_game" />
+
+
+    <Button
+        android:id="@+id/exit_game"
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="56dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="sans-serif-condensed"
+        android:onClick="exitGame"
+
+        android:text="@string/exit_game"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sound" />
+
+
+    <ImageButton
+        android:id="@+id/imageView"
+        android:layout_width="387dp"
+        android:layout_height="387dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="hrdimage"
+        android:onClick="gameIntroduction"
+        android:src="@drawable/hrd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background='#00000000'/>
+
+</android.support.constraint.ConstraintLayout>
+

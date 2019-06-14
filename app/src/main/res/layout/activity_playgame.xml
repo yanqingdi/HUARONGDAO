@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear">
+
+
+    <TextView
+        android:id="@+id/timetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:background="#00000000"
+        android:gravity="center|center_horizontal"
+        android:text="@string/time_text"
+        android:textColor="@color/colorWhite"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/steptext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/steptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#00000000"
+        android:gravity="center|center_horizontal"
+        android:text="@string/step_text"
+        android:textColor="@color/colorWhite"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/timetext"
+        app:layout_constraintTop_toTopOf="@+id/timetext" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/chessboard_layout"
+        android:layout_width="405dp"
+        android:layout_height="493dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/resetbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timetext">
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="363dp"
+            android:layout_height="461dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.571">
+
+            <RelativeLayout
+                android:id="@+id/chessboard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/quitbtn"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="60dp"
+        android:layout_weight="1"
+        android:background="@drawable/home"
+        android:onClick="exitGame"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/backbtn"
+        app:layout_constraintTop_toBottomOf="@+id/chessboard_layout" />
+
+    <Button
+        android:id="@+id/backbtn"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_weight="1"
+        android:background="@drawable/back"
+        android:onClick="backStep"
+
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBaseline_toBaselineOf="@+id/quitbtn"
+        app:layout_constraintEnd_toStartOf="@+id/quitbtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resetbtn" />
+
+
+    <Button
+        android:id="@+id/resetbtn"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:background="@drawable/reback"
+        android:onClick="reinit"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBaseline_toBaselineOf="@+id/backbtn"
+        app:layout_constraintEnd_toStartOf="@+id/backbtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
