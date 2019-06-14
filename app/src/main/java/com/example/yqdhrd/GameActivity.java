@@ -87,7 +87,7 @@ public class GameActivity extends MusicalActivity {
         chessBoard = findViewById(R.id.chessboard);
         chessBoard.setBackground(getResources().getDrawable(R.drawable.game_bg));
         LinearLayout.LayoutParams chessBoardParams = new LinearLayout.LayoutParams((int) (windowWidth * 0.8), (int) (windowHeight * 0.6));
-        chessBoardParams.setMargins((int) (windowWidth * 0.05), (int) (windowHeight * 0.05), (int) (windowWidth * 0.05), 0);
+        chessBoardParams.setMargins((int) (windowWidth * 0.1), (int) (windowHeight * 0.02), 0, 0);
         chessBoard.setLayoutParams(chessBoardParams);
         chessWidth = (int) (windowWidth * 0.8 / 4);
         chessHeight = (int) (windowHeight * 0.6 / 5);
@@ -206,7 +206,7 @@ public class GameActivity extends MusicalActivity {
                 rePos(chessid, left, right,0);
             }
         }
-        checkwin();
+
         return chessPosList.get(chessid);
     }
 
@@ -257,11 +257,10 @@ public class GameActivity extends MusicalActivity {
                 rePos(chessid, top, down,1);
             }
         }
-        checkwin();
         return chessPosList.get(chessid);
     }
 
-    public ArrayList<Integer> ifmoveup(int dir[], int id, int direction, int moveX, int moveY) {
+    public ArrayList<Integer> ifmoveup(int dir[], int id, int direction, int moveX, int moveY ) {
         int left = dir[0];
         int top = dir[1];
         int right = dir[2];
@@ -307,6 +306,7 @@ public class GameActivity extends MusicalActivity {
                     rePos(chessid, left, right,0);
                 }
             }
+            checkwin();
         } else {
             if (moveY > 0) {
                 top = top % chessHeight == 0 ? top / chessHeight : top / chessHeight + 1;
@@ -343,13 +343,14 @@ public class GameActivity extends MusicalActivity {
                     rePos(chessid, top, down,1);
                 }
             }
+            checkwin();
         }
         if(moveX!=0 || moveY!=0)
         {
             this.addStep();
         }
 
-        checkwin();
+
         return chessPosList.get(chessid);
     }
 
